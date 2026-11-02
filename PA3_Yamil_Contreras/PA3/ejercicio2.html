@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yamil Contreras">
+    <title>Ejercicio 2 | Aumento de sueldo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p class="etiqueta">PROCESO DE APRENDIZAJE 3 · 2026-20</p>
+            <h1>Introducción a la programación</h1>
+            <p>Alumno: Yamil Contreras</p>
+        </header>
+        <nav aria-label="Ejercicios">
+                <a href="ejercicio1.html">Ejercicio 1</a>
+                <a href="ejercicio2.html" aria-current="page">Ejercicio 2</a>
+                <a href="ejercicio3.html">Ejercicio 3</a>
+                <a href="ejercicio4.html">Ejercicio 4</a>
+                <a href="ejercicio5.html">Ejercicio 5</a>
+        </nav>
+        <main>
+            <p class="tipo">Condicional múltiple</p>
+            <h2>Ejercicio 2: Aumento de sueldo</h2>
+            <div class="columnas">
+                <section class="panel">
+                    <h3>Enunciado</h3>
+                    <p>Ingresar el sueldo y los años de antigüedad de un trabajador.</p>
+                <ul><li>Sueldo menor a S/ 1500 y antigüedad de 10 años o más: aumento del 20 %.</li><li>Sueldo menor a S/ 1500 y antigüedad menor a 10 años: aumento del 5 %.</li><li>Sueldo de S/ 1500 o más: sin aumento.</li></ul>
+                <p>Mostrar sueldo inicial, sueldo actual, años de servicio y si hubo reajuste.</p>
+                    <h3 class="subtitulo">Cómo se resuelve</h3>
+                    <p>Primero se elige el porcentaje con <code>if / else if / else</code>.</p>
+                <ul><li>Aumento = sueldo × porcentaje / 100</li><li>Sueldo actual = sueldo + aumento</li></ul>
+                </section>
+                <section class="panel solucion">
+                    <h3>Solución 02</h3>
+                    <script>
+                // Leer el sueldo. Se usa punto para los decimales.
+                let datoSueldo = prompt("Ingresa el sueldo actual en soles (usa punto para los decimales):");
+                let sueldo = Number(datoSueldo);
+
+                if (datoSueldo === null) {
+                    document.write('<p class="aviso">Operación cancelada. Pulsa Volver a calcular para empezar.</p>');
+                } else if (datoSueldo.trim() === "" || !isFinite(sueldo) || sueldo <= 0) {
+                    document.write('<p class="aviso">Ingresa un sueldo válido mayor que cero.</p>');
+                } else {
+                    let datoAnios = prompt("Ingresa los años completos de antigüedad:");
+                    let anios = Number(datoAnios);
+
+                    if (datoAnios === null) {
+                        document.write('<p class="aviso">Operación cancelada. Pulsa Volver a calcular para empezar.</p>');
+                    } else if (datoAnios.trim() === "" || !isFinite(anios) || anios < 0 || anios % 1 !== 0) {
+                        document.write('<p class="aviso">Ingresa los años como un número entero igual o mayor que cero.</p>');
+                    } else {
+                        let porcentaje;
+                        let reajuste;
+
+                        // Aplicar la política de salarios del enunciado.
+                        if (sueldo < 1500 && anios >= 10) {
+                            porcentaje = 20;
+                            reajuste = "Se realizó un reajuste del 20%.";
+                        } else if (sueldo < 1500 && anios < 10) {
+                            porcentaje = 5;
+                            reajuste = "Se realizó un reajuste del 5%.";
+                        } else {
+                            porcentaje = 0;
+                            reajuste = "No se realizó un reajuste.";
+                        }
+
+                        let aumento = sueldo * porcentaje / 100;
+                        let sueldoActual = sueldo + aumento;
+
+                        document.write("<p><strong>Sueldo inicial:</strong> S/ " + sueldo.toFixed(2) + "</p>");
+                        document.write("<p><strong>Años de servicio:</strong> " + anios + "</p>");
+                        document.write("<p><strong>Porcentaje de aumento:</strong> " + porcentaje + "%</p>");
+                        document.write("<p><strong>Aumento:</strong> S/ " + aumento.toFixed(2) + "</p>");
+                        document.write('<p class="total">Sueldo actual: S/ ' + sueldoActual.toFixed(2) + "</p>");
+                        document.write("<p><strong>Mensaje:</strong> " + reajuste + "</p>");
+                    }
+                }
+                    </script>
+                    <noscript><p class="aviso">Activa JavaScript para ejecutar el ejercicio.</p></noscript>
+                    <a class="boton" href="ejercicio2.html">Volver a calcular</a>
+                </section>
+            </div>
+        </main>
+        <footer>PA3 · Yamil Contreras · HTML, CSS y JavaScript</footer>
+    </div>
+</body>
+</html>

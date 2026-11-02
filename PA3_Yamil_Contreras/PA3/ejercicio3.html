@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yamil Contreras">
+    <title>Ejercicio 3 | Serie de Fibonacci</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p class="etiqueta">PROCESO DE APRENDIZAJE 3 · 2026-20</p>
+            <h1>Introducción a la programación</h1>
+            <p>Alumno: Yamil Contreras</p>
+        </header>
+        <nav aria-label="Ejercicios">
+                <a href="ejercicio1.html">Ejercicio 1</a>
+                <a href="ejercicio2.html">Ejercicio 2</a>
+                <a href="ejercicio3.html" aria-current="page">Ejercicio 3</a>
+                <a href="ejercicio4.html">Ejercicio 4</a>
+                <a href="ejercicio5.html">Ejercicio 5</a>
+        </nav>
+        <main>
+            <p class="tipo">Estructura repetitiva FOR</p>
+            <h2>Ejercicio 3: Serie de Fibonacci</h2>
+            <div class="columnas">
+                <section class="panel">
+                    <h3>Enunciado</h3>
+                    <p>Generar la serie de Fibonacci hasta la cantidad de términos ingresada por el usuario.</p>
+                <p>Traducir el pseudocódigo proporcionado a JavaScript utilizando un ciclo <code>for</code>.</p>
+                    <h3 class="subtitulo">Cómo se resuelve</h3>
+                    <p>Se empieza con <code>a = 0</code> y <code>b = 1</code>. En cada vuelta se muestra <code>a</code> y se actualizan los valores:</p>
+                <p><code>temp = a + b<br>a = b<br>b = temp</code></p>
+                <p class="nota">Se admiten de 1 a 78 términos para mantener valores exactos con números de JavaScript.</p>
+                </section>
+                <section class="panel solucion">
+                    <h3>Solución 03</h3>
+                    <script>
+                // Traducción del pseudocódigo de la imagen.
+                let dato = prompt("Ingresa la cantidad de términos de Fibonacci (de 1 a 78):");
+                let num_terminos = Number(dato);
+
+                if (dato === null) {
+                    document.write('<p class="aviso">Operación cancelada. Pulsa Volver a calcular para empezar.</p>');
+                } else if (dato.trim() === "" || !isFinite(num_terminos) || num_terminos < 1 || num_terminos > 78 || num_terminos % 1 !== 0) {
+                    document.write('<p class="aviso">Ingresa una cantidad entera entre 1 y 78.</p>');
+                } else {
+                    let a = 0; // Primer valor de la serie.
+                    let b = 1; // Segundo valor de la serie.
+                    let temp;
+
+                    document.write("<p><strong>Cantidad de términos:</strong> " + num_terminos + "</p>");
+                    document.write('<p class="serie">');
+
+                    // Mostrar a, sumar y actualizar: igual que el pseudocódigo.
+                    for (let i = 1; i <= num_terminos; i++) {
+                        if (i < num_terminos) {
+                            document.write(a + ", ");
+                        } else {
+                            document.write(a);
+                        }
+
+                        temp = a + b;
+                        a = b;
+                        b = temp;
+                    }
+
+                    document.write("</p>");
+                }
+                    </script>
+                    <noscript><p class="aviso">Activa JavaScript para ejecutar el ejercicio.</p></noscript>
+                    <a class="boton" href="ejercicio3.html">Volver a calcular</a>
+                </section>
+            </div>
+        </main>
+        <footer>PA3 · Yamil Contreras · HTML, CSS y JavaScript</footer>
+    </div>
+</body>
+</html>

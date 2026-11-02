@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yamil Contreras">
+    <title>Ejercicio 5 | Factorial de un número</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p class="etiqueta">PROCESO DE APRENDIZAJE 3 · 2026-20</p>
+            <h1>Introducción a la programación</h1>
+            <p>Alumno: Yamil Contreras</p>
+        </header>
+        <nav aria-label="Ejercicios">
+                <a href="ejercicio1.html">Ejercicio 1</a>
+                <a href="ejercicio2.html">Ejercicio 2</a>
+                <a href="ejercicio3.html">Ejercicio 3</a>
+                <a href="ejercicio4.html">Ejercicio 4</a>
+                <a href="ejercicio5.html" aria-current="page">Ejercicio 5</a>
+        </nav>
+        <main>
+            <p class="tipo">Estructura repetitiva FOR</p>
+            <h2>Ejercicio 5: Factorial de un número</h2>
+            <div class="columnas">
+                <section class="panel">
+                    <h3>Enunciado</h3>
+                    <p>Leer un número entero no negativo y calcular su factorial utilizando un ciclo <code>for</code>.</p>
+                <p>Fórmula: <strong>n! = 1 × 2 × 3 × … × n</strong>.</p>
+                    <h3 class="subtitulo">Cómo se resuelve</h3>
+                    <p>El acumulador empieza en 1. En cada vuelta se multiplica por el valor del contador.</p>
+                <p><code>factorial = factorial * i</code></p>
+                <p>El factorial de cero es <strong>0! = 1</strong>.</p>
+                <p class="nota">Se admiten números de 0 a 18 para mostrar un resultado entero exacto con números de JavaScript.</p>
+                </section>
+                <section class="panel solucion">
+                    <h3>Solución 05</h3>
+                    <script>
+                let dato = prompt("Ingresa un número entero de 0 a 18 para calcular su factorial:");
+                let numero = Number(dato);
+
+                if (dato === null) {
+                    document.write('<p class="aviso">Operación cancelada. Pulsa Volver a calcular para empezar.</p>');
+                } else if (dato.trim() === "" || !isFinite(numero) || numero < 0 || numero > 18 || numero % 1 !== 0) {
+                    document.write('<p class="aviso">Ingresa un número entero entre 0 y 18.</p>');
+                } else {
+                    let factorial = 1;
+                    let operacion = "";
+
+                    for (let i = 1; i <= numero; i++) {
+                        factorial = factorial * i;
+
+                        if (i < numero) {
+                            operacion = operacion + i + " × ";
+                        } else {
+                            operacion = operacion + i;
+                        }
+                    }
+
+                    document.write("<p><strong>Número ingresado:</strong> " + numero + "</p>");
+
+                    if (numero === 0) {
+                        document.write("<p>Por definición, el factorial de cero es 1.</p>");
+                    } else {
+                        document.write('<p class="serie">' + numero + "! = " + operacion + "</p>");
+                    }
+
+                    document.write('<p class="total">' + numero + "! = " + factorial + "</p>");
+                }
+                    </script>
+                    <noscript><p class="aviso">Activa JavaScript para ejecutar el ejercicio.</p></noscript>
+                    <a class="boton" href="ejercicio5.html">Volver a calcular</a>
+                </section>
+            </div>
+        </main>
+        <footer>PA3 · Yamil Contreras · HTML, CSS y JavaScript</footer>
+    </div>
+</body>
+</html>

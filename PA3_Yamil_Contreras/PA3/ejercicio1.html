@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yamil Contreras">
+    <title>Ejercicio 1 | Compra de camisas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p class="etiqueta">PROCESO DE APRENDIZAJE 3 · 2026-20</p>
+            <h1>Introducción a la programación</h1>
+            <p>Alumno: Yamil Contreras</p>
+        </header>
+        <nav aria-label="Ejercicios">
+                <a href="ejercicio1.html" aria-current="page">Ejercicio 1</a>
+                <a href="ejercicio2.html">Ejercicio 2</a>
+                <a href="ejercicio3.html">Ejercicio 3</a>
+                <a href="ejercicio4.html">Ejercicio 4</a>
+                <a href="ejercicio5.html">Ejercicio 5</a>
+        </nav>
+        <main>
+            <p class="tipo">Condicional múltiple</p>
+            <h2>Ejercicio 1: Compra de camisas</h2>
+            <div class="columnas">
+                <section class="panel">
+                    <h3>Enunciado</h3>
+                    <p>En una tienda, cada camisa cuesta <strong>S/ 60.00</strong>. A partir de un cuarto de docena, el precio se reduce en un <strong>10 %</strong>.</p>
+                <p>Leer la cantidad de camisas y mostrar el importe de la compra, el descuento y el costo final.</p>
+                    <h3 class="subtitulo">Cómo se resuelve</h3>
+                    <p>Un cuarto de docena equivale a <strong>3 camisas</strong>.</p>
+                <ul><li>Importe = cantidad × 60</li><li>Desde 3 camisas: descuento = importe × 0.10</li><li>Total = importe − descuento</li></ul>
+                </section>
+                <section class="panel solucion">
+                    <h3>Solución 01</h3>
+                    <script>
+                // Leer la cantidad de camisas.
+                let dato = prompt("Ingresa la cantidad de camisas:");
+                let cantidad = Number(dato);
+
+                if (dato === null) {
+                    document.write('<p class="aviso">Operación cancelada. Pulsa Volver a calcular para empezar.</p>');
+                } else if (dato.trim() === "" || !isFinite(cantidad) || cantidad <= 0 || cantidad % 1 !== 0) {
+                    document.write('<p class="aviso">Ingresa una cantidad entera mayor que cero.</p>');
+                } else {
+                    let precio = 60;
+                    let importe = cantidad * precio;
+                    let descuento = 0;
+                    let porcentaje = 0;
+
+                    // Un cuarto de docena son 3 unidades.
+                    if (cantidad >= 3) {
+                        porcentaje = 10;
+                        descuento = importe * 0.10;
+                    }
+
+                    let total = importe - descuento;
+
+                    document.write("<p><strong>Cantidad de camisas:</strong> " + cantidad + "</p>");
+                    document.write("<p><strong>Precio por unidad:</strong> S/ " + precio.toFixed(2) + "</p>");
+                    document.write("<p><strong>Importe de compra:</strong> S/ " + importe.toFixed(2) + "</p>");
+                    document.write("<p><strong>Descuento (" + porcentaje + "%):</strong> S/ " + descuento.toFixed(2) + "</p>");
+                    document.write('<p class="total">Total a pagar: S/ ' + total.toFixed(2) + "</p>");
+                }
+                    </script>
+                    <noscript><p class="aviso">Activa JavaScript para ejecutar el ejercicio.</p></noscript>
+                    <a class="boton" href="ejercicio1.html">Volver a calcular</a>
+                </section>
+            </div>
+        </main>
+        <footer>PA3 · Yamil Contreras · HTML, CSS y JavaScript</footer>
+    </div>
+</body>
+</html>

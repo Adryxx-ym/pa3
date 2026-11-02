@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yamil Contreras">
+    <title>Ejercicio 4 | Múltiplos de 7 y 11</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <p class="etiqueta">PROCESO DE APRENDIZAJE 3 · 2026-20</p>
+            <h1>Introducción a la programación</h1>
+            <p>Alumno: Yamil Contreras</p>
+        </header>
+        <nav aria-label="Ejercicios">
+                <a href="ejercicio1.html">Ejercicio 1</a>
+                <a href="ejercicio2.html">Ejercicio 2</a>
+                <a href="ejercicio3.html">Ejercicio 3</a>
+                <a href="ejercicio4.html" aria-current="page">Ejercicio 4</a>
+                <a href="ejercicio5.html">Ejercicio 5</a>
+        </nav>
+        <main>
+            <p class="tipo">Estructura repetitiva FOR</p>
+            <h2>Ejercicio 4: Múltiplos de 7 y 11</h2>
+            <div class="columnas">
+                <section class="panel">
+                    <h3>Enunciado</h3>
+                    <p>Imprimir los números enteros múltiplos de <strong>7 y 11</strong> comprendidos entre 1000 y 5000, excepto los comprendidos entre 2000 y 3000.</p>
+                <p>Mostrar también su cantidad y su suma.</p>
+                    <h3 class="subtitulo">Cómo se resuelve</h3>
+                    <p>Se buscan los números divisibles entre <strong>ambos</strong>: su residuo al dividir entre 7 y entre 11 debe ser cero.</p>
+                <p><code>numero % 7 === 0 &amp;&amp; numero % 11 === 0</code></p>
+                <p>Se excluye el intervalo del 2000 al 3000, incluyendo sus extremos.</p>
+                </section>
+                <section class="panel solucion">
+                    <h3>Solución 04</h3>
+                    <script>
+                let cantidad = 0;
+                let suma = 0;
+
+                document.write('<div class="numeros">');
+
+                // Recorrer el intervalo completo, incluyendo 1000 y 5000.
+                for (let numero = 1000; numero <= 5000; numero++) {
+                    // Debe ser divisible entre 7 y 11 y estar fuera de [2000, 3000].
+                    if (numero % 7 === 0 && numero % 11 === 0 && (numero < 2000 || numero > 3000)) {
+                        document.write('<span class="numero">' + numero + "</span>");
+                        cantidad = cantidad + 1;
+                        suma = suma + numero;
+                    }
+                }
+
+                document.write("</div>");
+                document.write("<p><strong>Cantidad de números:</strong> " + cantidad + "</p>");
+                document.write('<p class="total">Suma de los números: ' + suma + "</p>");
+                    </script>
+                    <noscript><p class="aviso">Activa JavaScript para ejecutar el ejercicio.</p></noscript>
+                    <a class="boton" href="ejercicio4.html">Volver a calcular</a>
+                </section>
+            </div>
+        </main>
+        <footer>PA3 · Yamil Contreras · HTML, CSS y JavaScript</footer>
+    </div>
+</body>
+</html>

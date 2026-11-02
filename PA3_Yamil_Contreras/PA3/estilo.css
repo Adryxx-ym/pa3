@@ -1,0 +1,59 @@
+/* Estilo compartido por los cinco ejercicios. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #263847;
+    background: #edf2f5;
+    line-height: 1.6;
+}
+.contenedor { max-width: 1080px; margin: 28px auto; background: white; }
+header { background: #294d66; color: white; padding: 28px 32px; }
+.etiqueta { font-size: 12px; letter-spacing: 1px; color: #d5e6f0; }
+h1 { font-size: 27px; margin: 8px 0; }
+header p { font-size: 14px; }
+
+/* Menú horizontal. */
+nav { display: flex; flex-wrap: wrap; border-bottom: 1px solid #d6e0e7; padding: 8px 22px; gap: 6px; }
+nav a { padding: 9px 14px; color: #294d66; text-decoration: none; font-size: 14px; }
+nav a:hover, nav a[aria-current="page"] { background: #e6eff5; font-weight: bold; }
+a:focus-visible { outline: 3px solid #247bb4; outline-offset: 3px; }
+
+/* Enunciado a la izquierda y solución a la derecha. */
+main { padding: 28px 32px 32px; }
+.tipo { color: #5e7282; font-size: 12px; }
+h2 { font-size: 23px; margin: 3px 0 22px; }
+.columnas { display: flex; gap: 24px; align-items: flex-start; }
+.panel { width: 50%; border: 1px solid #c6d3dd; padding: 22px; min-width: 0; }
+.solucion { background: #f8fafb; }
+h3 { color: #294d66; font-size: 18px; margin-bottom: 14px; border-bottom: 1px solid #d6e0e7; padding-bottom: 8px; }
+p { margin-bottom: 12px; }
+header p:last-child, footer p { margin-bottom: 0; }
+ul { padding-left: 20px; margin-bottom: 14px; }
+li { margin-bottom: 8px; }
+.subtitulo { margin-top: 24px; }
+code { font-family: Consolas, monospace; font-size: 14px; overflow-wrap: anywhere; }
+.nota { font-size: 12px; color: #5e7282; }
+.total { background: #e5eff5; border-left: 4px solid #294d66; padding: 12px; font-weight: bold; overflow-wrap: anywhere; }
+.aviso { color: #922c22; background: #fff2ed; padding: 12px; }
+.serie { overflow-wrap: anywhere; line-height: 1.9; }
+.boton { display: inline-block; background: #294d66; color: white; text-decoration: none; padding: 10px 17px; font-size: 14px; margin-top: 10px; }
+.boton:hover { background: #1c394e; }
+.numeros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.numero { border: 1px solid #c6d3dd; padding: 4px 9px; background: white; }
+footer { text-align: center; font-size: 12px; color: #5e7282; padding: 18px; border-top: 1px solid #d6e0e7; }
+
+/* Adaptación a pantallas pequeñas. */
+@media (max-width: 700px) {
+    .contenedor { margin: 0; }
+    header, main { padding: 22px 18px; }
+    h1 { font-size: 23px; }
+    h2 { font-size: 21px; }
+    nav { padding: 8px 10px; }
+    nav a { padding: 8px 10px; }
+    .columnas { flex-direction: column; gap: 18px; }
+    .panel { width: 100%; padding: 18px; }
+}
